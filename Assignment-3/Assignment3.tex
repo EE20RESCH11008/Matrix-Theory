@@ -256,25 +256,61 @@ Line segments AD and BC intersect at O and form $\triangle$OAB and $\triangle$OD
 \caption{Quadrilateral with $\angle B < \angle A $ and $\angle C <\angle D $ }
 \label{myfig}
 \end{figure}
+Case(i):
 Given that 
 \begin{align}
 	\angle B < \angle A 
 \end{align}
+Let P is a point on OB such that 
+\begin{align}
+    \angle PAB = \angle OBA 
+\end{align}
+From $ \triangle PAB $,
+\begin{align}
+    \norm{\vec{A}-\vec{P}} = \norm{\vec{B}-\vec{P}}
+\end{align}
+\begin{align}
+   \norm{\vec{P}-\vec{O}}+ \norm{\vec{A}-\vec{P}} = \norm{\vec{P}-\vec{O}} + \norm{\vec{B}-\vec{P}}
+\end{align}
+\begin{align}
+   \norm{\vec{P}-\vec{O}}+ \norm{\vec{A}-\vec{P}} = \norm{\vec{B}-\vec{O}}
+\end{align}
+In $\triangle OAP$,
+  \begin{align}
+   \norm{\vec{A}-\vec{O}} < \norm{\vec{P}-\vec{O}}+ \norm{\vec{A}-\vec{P}}  
+\end{align}
+\begin{align}
+   \implies \norm{\vec{A}-\vec{O}} < \norm{\vec{B}-\vec{O}} 
+\end{align}
+Case(ii):
+We have
 \begin{align}
 	\angle C < \angle D 
 \end{align}
-It is known that in a Triangle, the side opposite to the largest angle is the largest.
-\newline From the $ \triangle OAB $,
+Q is a point on OC such that 
 \begin{align}
-	\norm{\vec{A}-\vec{O}}^2 < \norm{\vec{B}-\vec{O}}^2
+	\angle QDC = \angle DCO 
+\end{align}
+In $ \triangle QCD $,
+\begin{align}
+	\norm{\vec{D}-\vec{Q}} = \norm{\vec{C}-\vec{Q}}
+\end{align}
+\begin{align}
+	\norm{\vec{Q}-\vec{O}} + \norm{\vec{D}-\vec{Q}} = \norm{\vec{Q}-\vec{O}} + \norm{\vec{C}-\vec{Q}}
+\end{align}
+\begin{align}
+	\norm{\vec{Q}-\vec{O}} + \norm{\vec{D}-\vec{Q}} = \norm{\vec{C}-\vec{O}}
+\end{align}
+In $ \triangle OQD $,
+\begin{align}
+		\norm{\vec{D}-\vec{O}} < \norm{\vec{Q}-\vec{O}} + \norm{\vec{D}-\vec{Q}}
 \end{align} 
-Similarly in $ \triangle OCD $,
 \begin{align}
-	\norm{\vec{D}-\vec{O}}^2 < \norm{\vec{C}-\vec{O}}^2
-\end{align} 
-From equations (2.0.3) and (2.0.4) we get, 
+	\implies \norm{\vec{D}-\vec{O}} < \norm{\vec{C}-\vec{O}}  
+\end{align}
+From equations (2.0.7) and (2.0.14) we get, 
 \begin{align}
-	\norm{\vec{D}-\vec{O}}^2 + \norm{\vec{A}-\vec{O}}^2 < \norm{\vec{C}-\vec{O}}^2 + \norm{\vec{B}-\vec{O}}^2 
+	\norm{\vec{A}-\vec{O}}^2 + \norm{\vec{D}-\vec{O}}^2 <  \norm{\vec{B}-\vec{O}}^2 + \norm{\vec{C}-\vec{O}}^2 
 \end{align} 
 \begin{align}
 	\implies \norm{\vec{D}-\vec{A}}^2 < \norm{\vec{C}-\vec{B}}^2
