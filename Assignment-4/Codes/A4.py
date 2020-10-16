@@ -54,8 +54,8 @@ plt.figure(figsize=(8,8))
 #Plotting the circle and \ is needed before space to print space in the label
 plt.plot(x_circ[0,:],x_circ[1,:],label='$circle\ with\ centre\ c(3.5,2.5)$')
 #Plotting tangents
-plt.plot(x_AB[0,:],x_AB[1,:],label='$Tangent1 : (1/2\ 1/2)x = -3.5$')
-plt.plot(x_BC[0,:],x_BC[1,:],label='$Tangent2 : (1/2\ 1/2)x = 2.5$')
+plt.plot(x_AB[0,:],x_AB[1,:],label='$Tangent1 : (1\ 1)x = 7$')
+plt.plot(x_BC[0,:],x_BC[1,:],label='$Tangent2 : (1\ 1)x = 5$')
 
 #Labeling the coordinates
 tri_coords = np.vstack((Q1,Q2,c)).T
