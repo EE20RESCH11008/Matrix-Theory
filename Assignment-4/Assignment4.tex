@@ -279,19 +279,30 @@ The direction vector of the line joining the point $\vec{q_1}$ and the centre $\
 \begin{align}
  \vec{n_1}=\vec{q_1}-\vec{c}
  \end{align}
-This vector $\vec{n_1}$ is normal to the tangent drawn at $\vec{q_1}$ 
 \begin{align}
-\vec{n_1}=\vec{q_1}+\vec{u}  
+\implies \vec{n_1}=\vec{q_1}+\vec{u}      
 \end{align}
 where, 
 \begin{align}
-\vec{c}=-\vec{u}  
+\vec{c}=-\vec{u} 
 \end{align}
-The normal vector to the line is obtained as 
+The vector $\vec{n_1}$ is normal to the tangent drawn at $\vec{q_1}$. 
+From (2.0.2) and (2.1.1) we get,
 \begin{align}
 \vec{n_1}^T=\myvec{\frac{1}{2} \hspace{10} \frac{1}{2}}
 \end{align}
-If $\vec{q_1}$ be a point on the line and $\vec{n_1}$ is the normal vector, the equation of the line can be expressed as
+We know,
+\begin{align}
+\vec{m}^T\vec{n_1} = 0
+\end{align}
+\begin{align}
+\implies \vec{m}^T\myvec{\frac{1}{2}\\ \frac{1}{2}} = 0
+\end{align}
+\begin{align}
+\implies \vec{m}^T= \myvec{\frac{-1}{2} \hspace{10} \frac{1}{2}}
+\end{align}
+If $\vec{q_1}$ be a point on the line and $\vec{n_1}$ is the normal vector then
+the equation of the line can be expressed From(2.0.3) is :
 \begin{align}
  \vec{n_1}^T (\vec{x}-\vec{q_1})=0
 \end{align}
@@ -302,18 +313,18 @@ where
 \begin{align}
  c=\vec{n_1}^T \vec{q_1}
 \end{align}
-From the equations 2.1.1 and 2.1.5,
+Using the equations (2.1.1) and (2.1.5),
 \begin{align}
  \implies c=\myvec{\frac{1}{2} \hspace{10} \frac{1}{2}} \myvec{4\\3}= \frac{7}{2}
 \end{align}
-The line equation of Tangent-1 is:
+From (2.1.10), Line equation of Tangent-1 is:
 \begin{align}
  \myvec{\frac{1}{2} \hspace{10} \frac{1}{2}} \vec{x}= \frac{7}{2}
 \end{align}
 \begin{align}
   \implies \boxed{\myvec{1 \hspace{10} 1} \vec{x}= 7}
 \end{align}
-\subsection{Tangent-2} Let us take,
+\subsection{Tangent-2} Now,
 \begin{align}
 \vec{q_2}=\myvec{3\\2}
 \end{align}
@@ -321,15 +332,29 @@ The direction vector of the line joining the point $\vec{q_2}$ and the centre $\
 \begin{align}
  \vec{n_2}=\vec{q_2}-\vec{c}
  \end{align}
-This vector $\vec{n_2}$ is normal to the tangent drawn at $\vec{q_2}$
+ \begin{align}
+ \implies \vec{n_2}=\vec{q_2}+\vec{u}
+ \end{align}
+ where, 
 \begin{align}
-\vec{n_2}=\vec{q_2}+\vec{u}
+\vec{c}=-\vec{u} 
 \end{align}
-The normal vector to the line is obtained as 
+The vector $\vec{n_2}$ is normal to the tangent drawn at $\vec{q_2}$.
+From (2.0.2) and (2.2.1),
 \begin{align}
 \vec{n_2}^T=\myvec{\frac{-1}{2} \hspace{10} \frac{-1}{2}}
 \end{align}
-If $\vec{q_2}$ be a point on the line and $\vec{n_2}$ is the normal vector, the equation of the line can be expressed as
+We know,
+\begin{align}
+\vec{m}^T\vec{n_2} = 0
+\end{align}
+\begin{align}
+\implies \vec{m}^T\myvec{\frac{-1}{2}\\ \frac{-1}{2}} = 0
+\end{align}
+\begin{align}
+\implies \vec{m}^T= \myvec{\frac{1}{2} \hspace{10} \frac{-1}{2}}
+\end{align}
+If $\vec{q_2}$ be a point on the line and $\vec{n_2}$ is the normal vector, the equation of the line can be expressed From (2.0.3) is:
 \begin{align}
  \vec{n_2}^T (\vec{x}-\vec{q_2})=0
 \end{align}
@@ -340,11 +365,11 @@ where
 \begin{align}
  c=\vec{n_2}^T \vec{q_2}
 \end{align}
-From the equations 2.2.1 and 2.2.4,
+Using the equations 2.2.1 and 2.2.5,
 \begin{align}
  \implies c=\myvec{\frac{-1}{2} \hspace{10} \frac{-1}{2}} \myvec{3\\2}= \frac{-5}{2}
 \end{align}
-The line equation of Tangent-2 is:
+From (2.2.10), Line equation of Tangent-2 is:
 \begin{align}
  \myvec{\frac{-1}{2} \hspace{10} \frac{-1}{2}} \vec{x}= \frac{-5}{2}
 \end{align}
@@ -352,7 +377,7 @@ The line equation of Tangent-2 is:
   \implies \boxed {\myvec{1 \hspace{10} 1} \vec{x}= 5 }
 \end{align}
 \subsection{Result}
-From the equations 2.1.11 and 2.2.10, normal vector of Tangent-1 and Tangent-2 are equal. \newline 
+From the equations (2.1.14) and (2.2.14), normal vectors of Tangent-1 and Tangent-2 are equal. \newline 
 \centering Hence, the two tangents are parallel.
 \begin{figure}[h!]
 	\centering
