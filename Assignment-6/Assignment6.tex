@@ -247,15 +247,10 @@ Download latex-tikz codes from
 https://github.com/EE20RESCH11008/Matrix-Theory/tree/master/Assignment-6
 \end{lstlisting}
 \section{Problem}
-1). Find QR decomposition of 
+ Find QR decomposition of 
 \begin{align}
    \vec{V}=\myvec{16 & -12 \\ -12 & 9 } 
 \end{align}
-\quad 2). Find the vertex $\vec{c}$ of the parabola using SVD for
-\begin{align}
-   16x^2-24xy+9y^2+32x+86y-39=0 \label{eq:conic}
-\end{align} \quad also verify the result using least squares.
-\section{Solution}
 \subsection{QR Decomposition}
 Let, the column vectors of $\vec{V}$ be $\vec{v_1}$ and $\vec{v_2}$: 
 \begin{align}
@@ -310,80 +305,5 @@ Substituting the values of \eqref{eq:u1_1} \eqref{eq:u2_1} \eqref{eq:k1} \eqref{
 We get,
 \begin{align}
  \boxed{\vec{V}=\myvec{\frac{4}{5} & 0 \\ \frac{-3}{5} & 0} \myvec{20 & -15 \\ 0 & 0}=\myvec{\frac{4}{5}\\ \frac{-3}{5}}\myvec{20 & -15}}  \label{eq:V=QR}
-\end{align}
-The general second degree equation can be expressed as:
-\begin{align}
-\vec{x}^T\vec{x}+2\vec{u}^T\vec{x}+f=0 \label{eq:conic_gen}
-\end{align}
-From \eqref{eq:conic} and \eqref{eq:conic_gen},
-\begin{align}
-\vec{V}=\myvec{16 & -12 \\ -12 & 9 } \quad\vec{u}=\myvec{16 \\ 43},\quad f=-39 \label{eq:parametrics}
-\end{align}
-Eigen Values of $\vec{V}$ is given as
-\begin{align}
-\mydet{\lambda \vec{I}-\vec{V}} = 0
-\end{align}
-\begin{align}
-\implies \mydet{\lambda-16 & 12 \\ 12 & \lambda-9} =0
-\end{align}
-\begin{align}
-\implies \lambda^2-25\lambda=0 \label{eq:chartistic}
-\end{align}
-Hence, 
-\begin{align}
- \lambda_1=0, \quad  \lambda_2=25 \label{eq:eigenval}
-\end{align}
-Eigen-vector corresponding to $\lambda_1=0$,
-\begin{align}
-\implies \vec{p_1} = \frac{1}{5} \myvec{3 \\ 4} \label{eq:p1val}
-\end{align}
-Eigen-vector corresponding to $\lambda_2=25$,
-\begin{align}
-\implies \vec{p_2} = \frac{1}{5} \myvec{-4\\ 3} \label{eq:p2val}
-\end{align}
-From \eqref{eq:parametrics} and \eqref{eq:p1val}
-\begin{align}
- \eta = 2\vec{p_1}^T\vec{u}= 88 \label{eq:eta} 
-\end{align}
-Using \eqref{eq:eigenval} and \eqref{eq:eta}, Focal length of the parabola is given by:
-\begin{align}
- \abs{\frac{\eta}{\lambda_2}} = \abs{\frac{88}{25}} = 3.52 \label{eq:fl} 
-\end{align}
-The standard equation of parabola is given by:
-\begin{align}
- \vec{y}^T\vec{D}\vec{y} = -\eta \myvec{1 & 0}\vec{y} \label{eq:parabola}
-\end{align}
-And the vertex $\vec{c}$ is:
-\begin{align}
- \myvec{\vec{u}^T+\frac{\eta}{2} \vec{p_1}^T \\ \vec{V}}\vec{c} = \myvec{-f \\ \frac{\eta}{2}\vec{p_1}-\vec{u}} \label{eq:vertex}
-\end{align}
-Substitute values of \eqref{eq:parametrics} \eqref{eq:p1val} and \eqref{eq:eta} in \eqref{eq:vertex} we get,
-\begin{align}
-\myvec{\frac{212}{5} & \frac{391}{5} \\ 16 & -12 \\ -12 & 9}\vec{c}=\myvec{39 \\ \frac{52}{5}\\ \frac{-39}{5}}
-\end{align}
-\subsection{Singular Value Decomposition:}
-\begin{align}
-\vec{Mc=b} \label{1}
-\end{align}
-where
-\begin{align}
-\vec{M} = \myvec{\frac{212}{5} & \frac{391}{5} \\ 16 & -12 \\ -12 & 9},b = \myvec{39 \\\frac{52}{5}\\\frac{-39}{5}}\label{2}	
-\end{align}
-To solve \eqref{1}, we perform singular value decomposition on $\vec{M}$ given as 
-\begin{align}
-	\vec{M = USV^T }\label{3}
-\end{align}
-Substituting the value of $\vec{M}$ from \eqref{3} in \eqref{1}, we get
-\begin{align}
-	&\vec{USV^T}\vec{c} = \vec{b} \\
-\implies& \vec{c} = \vec{VS_+U^T}\vec{b}\label{4}
-\end{align}
-where, $\vec{S_+}$ is Moore-Pen-rose Pseudo-Inverse of $\vec{S}$. Columns of $\vec{U}$ are eigen-vectors of $\vec{MM^T}$, columns of $\vec{V}$ are eigenvectors of $\vec{M^TM}$ and $\vec{S}$ is diagonal matrix of singular value of eigenvalues of $\vec{M^TM}$. First calculating the eigenvectors corresponding to $\vec{M^TM}$.
-\begin{align}
-    \vec{M^TM} = \myvec{\frac{212}{2} & 16 & -12 \\ \frac{391}{5} & -12 & 9 } \myvec{\frac{212}{5} & \frac{391}{5} \\ 16 & -12 \\ -12 & 9} = \myvec{\frac{54944}{25} & \frac{75392}{25} \\ \frac{75392}{25} & \frac{158506}{25}}
-\end{align}
-Eigen values of $\vec{M^TM}$ can be found out as
-\begin{align}
-	 \abs{\vec{M^TM-\lambda I}} = 0
 \end{align}
 \end{document}
