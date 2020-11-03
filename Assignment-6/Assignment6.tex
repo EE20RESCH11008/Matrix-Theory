@@ -239,18 +239,29 @@ columns=fullflexible
 % creates the second title. It will be ignored for other modes.
 %\IEEEpeerreviewmaketitle
 \begin{abstract}
-This document contains the QR decomposition.
+This document contains the QR decomposition and SVD followed by Least Square Verification.
 \end{abstract}
-Download latex-tikz codes from 
+Download all python codes from 
+%
+\begin{lstlisting}
+https://github.com/EE20RESCH11008/Matrix-Theory/tree/master/Assignment-6/Code
+\end{lstlisting}
+%
+and latex-tikz codes from 
 %
 \begin{lstlisting}
 https://github.com/EE20RESCH11008/Matrix-Theory/tree/master/Assignment-6
 \end{lstlisting}
 \section{Problem}
- Find QR decomposition of 
+1). Find QR decomposition of 
 \begin{align}
    \vec{V}=\myvec{16 & -12 \\ -12 & 9 } 
 \end{align}
+\quad 2). Find the vertex $\vec{c}$ of the parabola using SVD:
+\begin{align}
+   16x^2-24xy+9y^2+32x+86y-39=0 \label{eq:conic}
+\end{align} \quad also verify the result using least squares.
+\section{Solution}
 \subsection{QR Decomposition}
 Let, the column vectors of $\vec{V}$ be $\vec{v_1}$ and $\vec{v_2}$: 
 \begin{align}
@@ -306,4 +317,130 @@ We get,
 \begin{align}
  \boxed{\vec{V}=\myvec{\frac{4}{5} & 0 \\ \frac{-3}{5} & 0} \myvec{20 & -15 \\ 0 & 0}=\myvec{\frac{4}{5}\\ \frac{-3}{5}}\myvec{20 & -15}}  \label{eq:V=QR}
 \end{align}
+\subsection{Vertex of Parabola:}
+The general second degree equation can be expressed as:
+\begin{align}
+\vec{x}^T\vec{x}+2\vec{u}^T\vec{x}+f=0 \label{eq:conic_gen}
+\end{align}
+From \eqref{eq:conic} and \eqref{eq:conic_gen},
+\begin{align}
+\vec{V}=\myvec{16 & -12 \\ -12 & 9 } \quad\vec{u}=\myvec{16 \\ 43},\quad f=-39 \label{eq:parametrics}
+\end{align}
+Eigen Values of $\vec{V}$ is given as
+\begin{align}
+\mydet{\lambda \vec{I}-\vec{V}} = 0
+\end{align}
+\begin{align}
+\implies \mydet{\lambda-16 & 12 \\ 12 & \lambda-9} =0
+\end{align}
+\begin{align}
+\implies \lambda^2-25\lambda=0 \label{eq:chartistic}
+\end{align}
+Hence, 
+\begin{align}
+ \lambda_1=0, \quad  \lambda_2=25 \label{eq:eigenval}
+\end{align}
+Eigen-vector corresponding to $\lambda_1=0$,
+\begin{align}
+\implies \vec{p_1} = \frac{1}{5} \myvec{3 \\ 4} \label{eq:p1val}
+\end{align}
+Eigen-vector corresponding to $\lambda_2=25$,
+\begin{align}
+\implies \vec{p_2} = \frac{1}{5} \myvec{-4\\ 3} \label{eq:p2val}
+\end{align}
+From \eqref{eq:parametrics} and \eqref{eq:p1val}
+\begin{align}
+ \eta = 2\vec{p_1}^T\vec{u}= 88 \label{eq:eta} 
+\end{align}
+Using \eqref{eq:eigenval} and \eqref{eq:eta}, Focal length of the parabola is given by:
+\begin{align}
+ \abs{\frac{\eta}{\lambda_2}} = \abs{\frac{88}{25}} = 3.52 \label{eq:fl} 
+\end{align}
+The standard equation of parabola is given by:
+\begin{align}
+ \vec{y}^T\vec{D}\vec{y} = -\eta \myvec{1 & 0}\vec{y} \label{eq:parabola}
+\end{align}
+And the vertex $\vec{c}$ is:
+\begin{align}
+ \myvec{\vec{u}^T+\frac{\eta}{2} \vec{p_1}^T \\ \vec{V}}\vec{c} = \myvec{-f \\ \frac{\eta}{2}\vec{p_1}-\vec{u}} \label{eq:vertex}
+\end{align}
+Substitute values of \eqref{eq:parametrics} \eqref{eq:p1val} and \eqref{eq:eta} in \eqref{eq:vertex} we get,
+\begin{align}
+\myvec{\frac{212}{5} & \frac{391}{5} \\ 16 & -12 \\ -12 & 9}\vec{c}=\myvec{39 \\ \frac{52}{5}\\ \frac{-39}{5}}
+\end{align}
+\subsection{Singular Value Decomposition:}
+\begin{align}
+\vec{Mc=b} \label{1}
+\end{align}
+where
+\begin{align}
+\vec{M} = \myvec{\frac{212}{5} & \frac{391}{5} \\ 16 & -12 \\ -12 & 9},b = \myvec{39 \\\frac{52}{5}\\\frac{-39}{5}}\label{eq:2}	
+\end{align}
+To solve \eqref{1}, we perform singular value decomposition on $\vec{M}$ given as 
+\begin{align}
+	\vec{M = USV^T }\label{3}
+\end{align}
+Substituting the value of $\vec{M}$ from \eqref{3} in \eqref{1}, we get
+\begin{align}
+	&\vec{USV^T}\vec{c} = \vec{b} \\
+\implies& \vec{c} = \vec{VS_+U^T}\vec{b}\label{eq:4}
+\end{align}
+where, $\vec{S_+}$ is Moore-Pen-rose Pseudo-Inverse of $\vec{S}$. Columns of $\vec{U}$ are eigen-vectors of $\vec{MM^T}$, columns of $\vec{V}$ are eigenvectors of $\vec{M^TM}$ and $\vec{S}$ is diagonal matrix of singular value of eigenvalues of $\vec{M^TM}$. First calculating the eigenvectors corresponding to $\vec{M^TM}$.\newline
+Using Python, $\vec{U}, \vec{S}$ and $\vec{V}$ for $\vec{M}$ is given by: 
+\begin{align}
+	 \vec{U} = \myvec{\frac{99}{100} & \frac{11}{250} & 0 \\ \frac{-7}{200} & \frac{799}{1000} & \frac{3}{5} \\ \frac{26}{1000} & \frac{-599}{1000} & \frac{4}{10} } \label{eq:U}
+\end{align}
+\begin{align}
+	 \vec{S} = \myvec{\frac{8903}{100} & 0 \\ 0 & \frac{2471}{100}  \\ 0 & 0 }
+\end{align} \label{eq:S}
+\begin{align}
+	 \vec{V} = \myvec{\frac{93}{200} & \frac{221}{250} \\ \frac{221}{250} & \frac{-93}{200} } \label{eq:V}
+\end{align}
+Now, More-Pen-Rose Pseudo inverse of $\vec{S}$ is given by,
+\begin{align}
+	 \vec{S_+} = \myvec{\frac{100}{8903} & 0 & 0 \\ 0 & \frac{100}{2471} & 0 } \label{eq:S+}
+\end{align} 
+Hence, we get singular value decomposition of $\vec{M}$ as,
+\begin{align}
+	 \vec{M} = \myvec{\frac{99}{100} & \frac{11}{250} & 0 \\ \frac{-7}{200} & \frac{799}{1000} & \frac{3}{5} \\ \frac{26}{1000} & \frac{-599}{1000} & \frac{4}{10}}\myvec{\frac{8903}{100} & 0 \\ 0 & \frac{2471}{100}  \\ 0 & 0} \myvec{\frac{93}{200} & \frac{221}{250} \\ \frac{221}{250} & \frac{-93}{200} }
+\end{align}
+From \eqref{eq:2} and \eqref{eq:U}
+\begin{align}
+	 \vec{U^Tb} = \myvec{\frac{99}{100} & \frac{-7}{200} & \frac{26}{1000} \\ \frac{11}{250} & \frac{799}{1000} & \frac{-599}{1000} \\ 0 & \frac{3}{5} & \frac{4}{10} }\myvec{39 \\ \frac{52}{5} \\ \frac{-39}{5}} = \myvec{\frac{3838}{100}\\ \frac{1472}{100}\\ 0} \label{eq:UTb}
+\end{align}
+From \eqref{eq:V} and \eqref{eq:S+}
+\begin{align}
+	 \vec{VS_+} = \myvec{\frac{93}{200} & \frac{221}{250} \\ \frac{221}{250} & \frac{-93}{200} }\myvec{\frac{100}{8903} & 0 & 0 \\ 0 & \frac{100}{2471} & 0 } = \myvec{\frac{52}{10000} & \frac{358}{10000} & 0 \\ \frac{99}{10000} & \frac{-188}{10000} & 0 }\label{eq:VS}
+\end{align}
+Substitute \eqref{eq:VS} and \eqref{eq:UTb} in \eqref{eq:4} we get,
+\begin{align}
+	 \vec{c} = \myvec{\frac{52}{10000} & \frac{358}{10000} & 0 \\ \frac{99}{10000} & \frac{-188}{10000} & 0 }\myvec{\frac{3838}{100}\\ \frac{1472}{100}\\ 0} 
+\end{align}
+\begin{align}
+	\implies \boxed{\vec{c} = \myvec{\frac{726552}{1000000}\\ \frac{103226}{1000000}} =\myvec{0.726 \\ 0.103} }
+\end{align} 
+\subsection{Least Square Verification}
+Now, verify our solution using,
+\begin{align}
+	 \vec{M^TMc} = \vec{M^Tb} 
+\end{align}
+From \eqref{eq:2},
+\begin{align}
+\myvec{\frac{212}{5} & 16 & -12 \\ \frac{391}{5} & -12 & 9 } \myvec{\frac{212}{5} & \frac{391}{5} \\ 16 & -12 \\ -12 & 9} \vec{c}= \myvec{\frac{212}{5} & 16 & -12 \\ \frac{391}{5} & -12 & 9 } \myvec{39 \\ \frac{52}{5}\\ \frac{-39}{5}}
+\end{align}
+\begin{align}
+    \implies \myvec{\frac{54944}{25} & \frac{75392}{25} \\ \frac{75392}{25} & \frac{158506}{25} } \vec{c}= \myvec{\frac{9568}{5} \\ \frac{14274}{5} }
+\end{align}
+Solving the augmented matrix, we get
+\begin{align}
+\myvec{\frac{54944}{25}&\frac{75392}{25}&\frac{9568}{5}\\\frac{75392}{25}&\frac{158506}{25}&\frac{14274}{5}} &\xleftrightarrow{R_1=\frac{25}{54944}R_1}\myvec{1&\frac{75392}{54944}&\frac{47840}{54944}\\\frac{75392}{25}&\frac{158506}{25}&\frac{14274}{5}}\\
+&\xleftrightarrow{R_2=R_2-\frac{75392}{25}R_1}\myvec{1&\frac{75392}{54944}&\frac{47840}{54944}\\0&\frac{8809}{4}&\frac{22903}{100}}\\
+&\xleftrightarrow{R_2=\frac{4}{8809}R_2}\myvec{1&\frac{75392}{54944}&\frac{47840}{54944}\\0&1&\frac{22903}{220225}}\\
+&\xleftrightarrow{R_1=R_1-\frac{75392}{54944}R_2}\myvec{1&0&\frac{728}{1000}\\0&1&\frac{22903}{220225}}
+\end{align}
+Thus,
+\begin{align}
+    \implies \boxed{\vec{c}= \myvec{\frac{728}{1000} \\ \frac{22903}{220225} }= \myvec{0.728 \\ 0.103}}
+\end{align}
+Hence, verified the result from SVD.
 \end{document}
