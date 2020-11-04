@@ -417,7 +417,7 @@ Substitute \eqref{eq:VS} and \eqref{eq:UTb} in \eqref{eq:4} we get,
 	 \vec{c} = \myvec{\frac{52}{10000} & \frac{358}{10000} & 0 \\ \frac{99}{10000} & \frac{-188}{10000} & 0 }\myvec{\frac{3838}{100}\\ \frac{1472}{100}\\ 0} 
 \end{align}
 \begin{align}
-	\implies \boxed{\vec{c} = \myvec{\frac{726552}{1000000}\\ \frac{103226}{1000000}} =\myvec{0.726 \\ 0.103} }
+	\implies \boxed{\vec{c} = \myvec{\frac{728}{1000}\\ \frac{104}{1000}} =\myvec{0.728 \\ 0.104} }
 \end{align} 
 \subsection{Least Square Verification}
 Now, verify our solution using,
@@ -435,12 +435,12 @@ Solving the augmented matrix, we get
 \begin{align}
 \myvec{\frac{54944}{25}&\frac{75392}{25}&\frac{9568}{5}\\\frac{75392}{25}&\frac{158506}{25}&\frac{14274}{5}} &\xleftrightarrow{R_1=\frac{25}{54944}R_1}\myvec{1&\frac{75392}{54944}&\frac{47840}{54944}\\\frac{75392}{25}&\frac{158506}{25}&\frac{14274}{5}}\\
 &\xleftrightarrow{R_2=R_2-\frac{75392}{25}R_1}\myvec{1&\frac{75392}{54944}&\frac{47840}{54944}\\0&\frac{8809}{4}&\frac{22903}{100}}\\
-&\xleftrightarrow{R_2=\frac{4}{8809}R_2}\myvec{1&\frac{75392}{54944}&\frac{47840}{54944}\\0&1&\frac{22903}{220225}}\\
-&\xleftrightarrow{R_1=R_1-\frac{75392}{54944}R_2}\myvec{1&0&\frac{728}{1000}\\0&1&\frac{22903}{220225}}
+&\xleftrightarrow{R_2=\frac{4}{8809}R_2}\myvec{1&\frac{75392}{54944}&\frac{47840}{54944}\\0&1&\frac{104}{1000}}\\
+&\xleftrightarrow{R_1=R_1-\frac{75392}{54944}R_2}\myvec{1&0&\frac{728}{1000}\\0&1&\frac{104}{1000}}
 \end{align}
 Thus,
 \begin{align}
-    \implies \boxed{\vec{c}= \myvec{\frac{728}{1000} \\ \frac{22903}{220225} }= \myvec{0.728 \\ 0.103}}
+    \implies \boxed{\vec{c}= \myvec{\frac{728}{1000} \\ \frac{104}{1000} }= \myvec{0.728 \\ 0.104}}
 \end{align}
 Hence, verified the result from SVD.
 \end{document}
