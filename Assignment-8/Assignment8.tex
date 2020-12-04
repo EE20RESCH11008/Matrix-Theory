@@ -267,43 +267,46 @@ with respect to the usual inner products of $\vec{R^3}$, then
 \newline    3.\quad $ \vec{W}=$ span $\{(1,0,-1), (0,1,1)\}$
 \newline    4.\quad $ \vec{W}=$ span $\{(1,0,-1), (1,0,1)\}$ 
 \section{Solution}
-From \eqref{eq:1},
+Using \eqref{eq:1},
 \begin{align}
-\vec{W_1}=\vec{\{(x,y,z)=(x,y,-x-y)\}}
-\end{align}
-\begin{align}
-\implies \vec{W_1}= span \hspace{5}\{(1,0,-1),(0,1,-1)\}   \label{eq:5}
+\vec{W_1}=\myvec{1 & 1 & 1} \label{eq:5}
 \end{align}
 From \eqref{eq:2},
 \begin{align}
-\vec{W_2}=\vec{\{(x,y,z)=(x,y,-x+y)\}}
+ \vec{W_2}=\myvec{1 & -1 & 1} \label{eq:6}
+\end{align}
+From \eqref{eq:3}, we can say that, both the subspaces $\vec{W}$ and $\vec{W_2}$ of $\vec{R^3}$ contains the vector (0,1,1).
+\begin{align}
+\vec{W}=\myvec{0 & 1 & 1} \label{eq:7} \\ \vec{W_2}=\myvec{0 & 1 & 1}  \label{eq:8}
+\end{align}
+From \eqref{eq:6} and \eqref{eq:8},
+\begin{align}
+ \vec{W_2} = \myvec{1 & 1 & 1\\ 0 & 1 & 1} \label{eq:9}\\ Rank(\vec{W_2})=2
+ \label{eq:10}
+\end{align}
+Since, rank $<$ 3 and the vectors (1,1,1) and (0,1,1) are linearly independent they span a subspace of $\vec{R^3}$. \newline
+Consider the vector (a,b,c) $\in \vec{W} \cap \vec{W_1}$
+\begin{align}
+\implies \vec{W_1}=\myvec{1 & 1 & 1 \\ a & b & c} \label{eq:11}
 \end{align}
 \begin{align}
-\implies  \vec{W_2}= span \hspace{5}\{(1,0,-1),(0,1,1)\}   \label{eq:6}
+\implies \vec{W}=\myvec{0 & 1 & 1 \\ a & b & c} \label{eq:12}
 \end{align}
-From \eqref{eq:3},
+From \eqref{eq:4}, \newline
+The vector (a,b,c) is orthogonal to (0,1,1)
 \begin{align}
- \boxed{\vec{W \cap W_2}\subseteq \vec{W}  
- \implies \vec{W} = \{(0,1,1)\}}\label{eq:7}
+\implies (a,b,c).(0,1,1)^T =0 \\ \implies (a,b,c)=(0,1,-1) \label{eq:13}
 \end{align}
-Assume $\vec{(x,y,z)} \in \vec{W \cap W_1} \subseteq \vec(W)$
-\newline \newline Using \eqref{eq:4},
+From \eqref{eq:11} and \eqref{eq:13},
 \begin{align}
-\{(\vec{x,y,z})\} \hspace{5}is \hspace{5}orthogonal \hspace{5}to\hspace{5}\vec{W} \cap \vec{W_2}
+ \vec{W_1}=\myvec{1 & 1 & 1 \\ 0 & 1 & -1} 
 \end{align}
-From \eqref{eq:7},
+And from \eqref{eq:12} and \eqref{eq:13},
 \begin{align}
-\{(\vec{x,y,z})\} \hspace{5}orthogonal \hspace{5}to\hspace{5} \{(0,1,1)\}\\
-\implies (\vec{x,y,z})(0,1,1)^T =0 \\ 
-\implies \vec{y+z}=0 \\
-\implies \vec{y = -z}.
+ \boxed{\vec{W}=\myvec{0 & 1 & 1 \\ 0 & 1 & -1}} 
 \end{align}
-Now, 
-\begin{align}
-\vec{W \cap W_1 \subseteq W = \{(x,y,z) : (x, y, -y)\}} \\ \boxed{\implies \vec{W} =  \{(0,1,-1)\} or \{(1,1,-1)\}} \label{eq:8}
-\end{align}
-Finally from the \eqref{eq:7} and \eqref{eq:8} equations, \newline 
-\newline $\vec{W}$ can be given by:
+The vectors (0,1,1) and (0,1,-1) linearly independent and the rank($\vec{W}$)=2 ($<$ 3), then the vector span subspace of $\vec{R^3}$. \newline \newline
+Hence,
 \begin{align}
 \boxed{\vec{W}= span \{(0,1,-1), (0,1,1)\} \implies \vec{Ans: 1}}
 \end{align}
