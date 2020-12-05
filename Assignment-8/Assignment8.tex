@@ -284,25 +284,19 @@ From \eqref{eq:6} and \eqref{eq:8},
  \vec{W_2} = \myvec{1 & 1 & 1\\ 0 & 1 & 1} \label{eq:9}\\ Rank(\vec{W_2})=2
  \label{eq:10}
 \end{align}
-Since, rank $<$ 3 and the vectors (1,1,1) and (0,1,1) are linearly independent they span a subspace of $\vec{R^3}$. \newline
-Consider the vector (a,b,c) $\in \vec{W} \cap \vec{W_1}$
+Since, rank $<$ 3 and the vectors (1,1,1) and (0,1,1) are linearly independent they span a subspace of $\vec{R^3}$. \newline \newline
+Consider the vector (x,y,z) $\in \vec{W} \cap \vec{W_1}$ \newline
+From \eqref{eq:3} and \eqref{eq:4}, \newline
+The vector (x,y,z) is orthogonal to (0,1,1). 
 \begin{align}
-\implies \vec{W_1}=\myvec{1 & 1 & 1 \\ a & b & c} \label{eq:11}
-\end{align}
-\begin{align}
-\implies \vec{W}=\myvec{0 & 1 & 1 \\ a & b & c} \label{eq:12}
-\end{align}
-From \eqref{eq:4}, \newline
-The vector (a,b,c) is orthogonal to (0,1,1). 
-\begin{align}
-\implies <(a,b,c),(0,1,1)> =0 \\
-\implies (a,b,c)^T.(0,1,1) =0 \\ \implies (a,b,c)=(0,1,-1) \label{eq:13}
-\end{align}
-From \eqref{eq:11} and \eqref{eq:13},
+\implies \myvec{x & y & z}^T.\myvec{0 & 1 & 1} =0 \\ \implies \myvec{x & y & z}=\myvec{0 & 1 & -1} \label{eq:13}
+\end{align}\newline
+Since, (x,y,z) $\in \vec{W}\cap \vec{W_1}$: \newline 
+From \eqref{eq:5} and \eqref{eq:13},
 \begin{align}
  \vec{W_1}=\myvec{1 & 1 & 1 \\ 0 & 1 & -1} 
 \end{align}
-And from \eqref{eq:12} and \eqref{eq:13},
+Also from \eqref{eq:7} and \eqref{eq:13},
 \begin{align}
  \boxed{\vec{W}=\myvec{0 & 1 & 1 \\ 0 & 1 & -1}} 
 \end{align}
